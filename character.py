@@ -34,9 +34,16 @@ class Hero(Character):
         print(f"{self.name} dropped {self.weapon}!")
         self.weapon = self.default_weapon
 
+    def defend(self):
+        print(f"{self.name} is defending and will take less damage this turn.")
+        self.is_defending = True
 
 class Villain(Character):
     def __init__(self, name, hp, weapon) -> None:
         super().__init__(name=name, hp=hp)
         self.weapon = weapon
         self.health_bar = HealthBar(self, color="red")
+
+    def defend(self):
+        print(f"{self.name} is defending and will take less damage this turn.")
+        self.is_defending = True

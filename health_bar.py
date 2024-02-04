@@ -2,6 +2,7 @@ import os
 
 os.system("")
 
+
 class HealthBar:
 
     symbol_remaining = "█"
@@ -35,7 +36,10 @@ class HealthBar:
         self.current_value = self.entity.hp
 
     def draw(self) -> None:
-        remaining_bars = round(self.current_value / self.max_value * self.length)
+        remaining_bars = round(
+            self.current_value /
+            self.max_value *
+            self.length)
         lost_bars = self.length - remaining_bars
         print(f"{self.entity.name}'s HEALTH {self.entity.hp}/{self.entity.hp_max}")
         print(f"{self.barrier}"

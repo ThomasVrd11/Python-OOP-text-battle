@@ -13,10 +13,14 @@ class Character:
         self.weapon = fists
 
     def attack(self, target) -> None:
-        target.hp -= self.weapon.damage
-        target.hp = max(target.hp, 0)
-        target.health_bar.update()
-        print(f"{self.name} attacked {target.name} for {self.weapon.damage} damage with {self.weapon.name}")
+        if target.is_defending:
+            print(f"{target.name} defended the attack!")
+            target.is_defending = False
+        else:
+            target.hp -= self.weapon.damage
+            target.hp = max(target.hp, 0)
+            target.health_bar.update()
+            print(f"{self.name} attacked {target.name} for {self.weapon.damage} damage with {self.weapon.name}")
 
 
 class Hero(Character):
@@ -25,6 +29,7 @@ class Hero(Character):
 
         self.default_weapon = self.weapon
         self.health_bar = HealthBar(self, color="green")
+        self.is_defending = False
 
     def equip(self, weapon) -> None:
         self.weapon = weapon
@@ -37,6 +42,7 @@ class Hero(Character):
     def defend(self):
         print(f"{self.name} is defending and will take less damage this turn.")
         self.is_defending = True
+
 
 class Villain(Character):
     def __init__(self, name, hp, weapon) -> None:

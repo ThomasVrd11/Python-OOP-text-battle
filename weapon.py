@@ -1,15 +1,10 @@
-class weapon:
-    def __init__(self, name, weapon_type, damage, value) -> None:
+class Weapon:
+    def __init__(self, name, weapon_type, damage, value):
         self.name = name
         self.weapon_type = weapon_type
         self.damage = damage
         self.value = value
 
-
-iron_sword = weapon(
-    name="Iron Sword",
-    weapon_type="sharp",
-    damage=10,
-    value=10)
-short_bow = weapon(name="Short Bow", weapon_type="ranged", damage=8, value=8)
-fists = weapon(name="Fists", weapon_type="blunt", damage=2, value=0)
+iron_sword = Weapon(name="Iron Sword", weapon_type="sharp", damage=10, value=10)
+short_bow = Weapon(name="Short Bow", weapon_type="ranged", damage=8, value=8)
+fists = Weapon(name="Fists", weapon_type="blunt", damage=2, value=0)

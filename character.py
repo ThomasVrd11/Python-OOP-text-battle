@@ -20,7 +20,8 @@ class Character:
             target.hp -= self.weapon.damage
             target.hp = max(target.hp, 0)
             target.health_bar.update()
-            print(f"{self.name} attacked {target.name} for {self.weapon.damage} damage with {self.weapon.name}")
+            print(
+                f"{self.name} attacked {target.name} for {self.weapon.damage} damage with {self.weapon.name}")
 
 
 class Hero(Character):

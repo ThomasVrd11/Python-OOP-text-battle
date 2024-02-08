@@ -1,9 +1,9 @@
 from character import Hero, Villain
-from weapon import short_bow, iron_sword
+from weapon import short_bow, iron_sword, long_bow
 import random
 
 hero = Hero(name="Hero", hp=100)
-hero.equip(iron_sword)
+hero.equip(long_bow)
 villain = Villain(name="Villain", hp=100, weapon=short_bow)
 
 while hero.hp > 0 and villain.hp > 0:
